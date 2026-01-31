@@ -1,0 +1,2 @@
+-- Update ISBN column dari INT menjadi VARCHAR
+ALTER TABLE buku MODIFY COLUMN isbn VARCHAR(20) NOT NULL;
