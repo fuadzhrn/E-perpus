@@ -59,26 +59,30 @@ if ($_GET['aksi'] == "pinjam") {
     $judul_buku = $_POST['judulBuku'];
     $tanggal_pengembalian = $_POST['tanggalPengembalian'];
     $kondisiBukuSaatDikembalikan = $_POST['kondisiBukuSaatDikembalikan'];
+    $nama_anggota = $_SESSION['fullname'];
 
-    $ambil_id = mysqli_query($koneksi, "SELECT * FROM peminjaman WHERE judul_buku = '$judul_buku'");
+    $ambil_id = mysqli_query($koneksi, "SELECT * FROM peminjaman WHERE nama_anggota = '$nama_anggota' AND judul_buku = '$judul_buku' AND tanggal_pengembalian = ''");
     $row = mysqli_fetch_assoc($ambil_id);
 
-    $id_peminjaman = $row['id_peminjaman'];
+    if ($row) {
+        $id_peminjaman = $row['id_peminjaman'];
 
-    $query = "UPDATE peminjaman SET tanggal_pengembalian = '$tanggal_pengembalian', kondisi_buku_saat_dikembalikan = '$kondisiBukuSaatDikembalikan', denda = '$denda' ";
+        $query = "UPDATE peminjaman SET tanggal_pengembalian = '$tanggal_pengembalian', kondisi_buku_saat_dikembalikan = '$kondisiBukuSaatDikembalikan', denda = '$denda' WHERE id_peminjaman = '$id_peminjaman'";
 
-    $query .= "WHERE id_peminjaman = $id_peminjaman";
+        $sql = mysqli_query($koneksi, $query);
 
-    $sql = mysqli_query($koneksi, $query);
+        if ($sql) {
+            // Send notif to admin
+            InsertPemberitahuanPengembalian();
 
-    if ($sql) {
-        // Send notif to admin
-        InsertPemberitahuanPengembalian();
-
-        $_SESSION['berhasil'] = "Pengembalian buku berhasil !";
-        header("location: " . $_SERVER['HTTP_REFERER']);
+            $_SESSION['berhasil'] = "Pengembalian buku berhasil !";
+            header("location: " . $_SERVER['HTTP_REFERER']);
+        } else {
+            $_SESSION['gagal'] = "Pengembalian buku gagal !";
+            header("location: " . $_SERVER['HTTP_REFERER']);
+        }
     } else {
-        $_SESSION['gagal'] = "Pengembalian buku gagal !";
+        $_SESSION['gagal'] = "Data peminjaman tidak ditemukan !";
         header("location: " . $_SERVER['HTTP_REFERER']);
     }
 }

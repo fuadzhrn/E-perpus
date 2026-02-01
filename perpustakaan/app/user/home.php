@@ -37,6 +37,10 @@ if ($_SESSION['level'] != "Anggota") {
     <link rel="stylesheet" href="../../assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
     <!-- -->
     <link rel="stylesheet" href="../../assets/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+    <!-- Bootstrap Datepicker CSS -->
+    <link rel="stylesheet" href="../../assets/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+    <!-- Custom Datepicker CSS -->
+    <link rel="stylesheet" href="../../assets/dist/css/datepicker-custom.css">
     <!-- Icon -->
     <link rel="icon" type="icon" href="../../assets/dist/img/logo_app.png">
     <!-- Custom -->
@@ -83,6 +87,8 @@ if ($_SESSION['level'] != "Anggota") {
     <script src="../../assets/dist/js/toastr.min.js"></script>
     <!-- Lottie -->
     <script src="../../assets/json/lottie-player.js"></script>
+    <!-- Bootstrap Datepicker JS -->
+    <script src="../../assets/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
     <!-- -->
     <script>
         $(document).ready(function() {

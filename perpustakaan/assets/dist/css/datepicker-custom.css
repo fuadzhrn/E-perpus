@@ -1,0 +1,164 @@
+/* ============================================
+   DATEPICKER STYLING - MINIMAL & CLEAN
+   ============================================ */
+
+/* Container Datepicker */
+.datepicker {
+    padding: 8px !important;
+    border: 1px solid #ddd !important;
+    border-radius: 3px !important;
+    background-color: #fff !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12) !important;
+    width: 270px !important;
+    z-index: 9999 !important;
+    position: absolute !important;
+}
+
+/* Tabel Datepicker */
+.datepicker table {
+    width: 100% !important;
+    margin: 0 !important;
+    border-collapse: collapse !important;
+}
+
+/* Container Header */
+.datepicker .datepicker-days {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* Header Row (bulan/tahun dan tombol) */
+.datepicker thead tr:first-child {
+    height: 35px !important;
+}
+
+.datepicker thead tr:first-child th {
+    padding: 0 !important;
+    background-color: transparent !important;
+    border: none !important;
+}
+
+/* Tombol Prev dan Next */
+.datepicker .prev,
+.datepicker .next {
+    color: #333 !important;
+    border: 1px solid #ddd !important;
+    background-color: #fff !important;
+    padding: 5px 8px !important;
+    cursor: pointer !important;
+    width: 32px !important;
+    height: 32px !important;
+    text-align: center !important;
+    line-height: 20px !important;
+    border-radius: 3px !important;
+    font-size: 14px !important;
+}
+
+.datepicker .prev:hover,
+.datepicker .next:hover {
+    background-color: #f5f5f5 !important;
+}
+
+/* Header Bulan/Tahun */
+.datepicker .datepicker-switch {
+    background-color: transparent !important;
+    color: #333 !important;
+    padding: 0 !important;
+    text-align: center !important;
+    font-weight: 600 !important;
+    font-size: 13px !important;
+    border: none !important;
+    cursor: pointer !important;
+    flex: 1 !important;
+}
+
+.datepicker .datepicker-switch:hover {
+    background-color: transparent !important;
+}
+
+/* Header Hari (Sun, Mon, etc) */
+.datepicker thead th {
+    background-color: #f8f8f8 !important;
+    color: #666 !important;
+    padding: 6px 0 !important;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    border: none !important;
+    border-bottom: 1px solid #e8e8e8 !important;
+    height: 25px !important;
+    line-height: 25px !important;
+}
+
+/* Tanggal Cell */
+.datepicker tbody td {
+    padding: 0 !important;
+    text-align: center !important;
+    font-size: 12px !important;
+    color: #333 !important;
+    cursor: pointer !important;
+    border: none !important;
+    background-color: transparent !important;
+    width: 14.28% !important;
+    height: 32px !important;
+    line-height: 32px !important;
+}
+
+/* Hover pada tanggal */
+.datepicker tbody td:hover:not(.old):not(.new):not(.disabled) {
+    background-color: #e8f4f8 !important;
+}
+
+/* Tanggal dari bulan lain (old/new) */
+.datepicker .old,
+.datepicker .new {
+    color: #ccc !important;
+    background-color: transparent !important;
+}
+
+/* Tanggal disabled */
+.datepicker .disabled {
+    color: #ccc !important;
+    cursor: not-allowed !important;
+}
+
+/* Hari ini */
+.datepicker .today {
+    background-color: #007bff !important;
+    color: white !important;
+    border-radius: 2px !important;
+}
+
+.datepicker .today:hover {
+    background-color: #0056b3 !important;
+}
+
+/* Tanggal dipilih */
+.datepicker .active {
+    background-color: #007bff !important;
+    color: white !important;
+    border-radius: 2px !important;
+}
+
+.datepicker .active:hover {
+    background-color: #0056b3 !important;
+}
+
+/* Input Tanggal Margin Fix */
+#tanggalPeminjaman {
+    margin: 0 !important;
+    padding: 10px 12px !important;
+}
+
+/* Input Tanggal Margin Fix */
+#tanggalPengembalian {
+    margin: 0 !important;
+    padding: 10px 12px !important;
+}
+
+/* Positioning Datepicker untuk mencegah overflow */
+.input-group .datepicker {
+    top: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+}
+

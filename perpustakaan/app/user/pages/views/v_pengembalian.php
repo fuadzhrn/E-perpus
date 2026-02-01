@@ -59,7 +59,12 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Tanggal Pengembalian</label>
-                                        <input type="text" class="form-control" name="tanggalPengembalian" value="<?= date('d-m-Y'); ?>" readonly required>
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </div>
+                                            <input type="text" class="form-control" id="tanggalPengembalian" name="tanggalPengembalian" placeholder="dd-mm-yyyy" required>
+                                        </div>
                                     </div>
                                     <div class="form-group">
                                         <label>Kondisi Buku Saat Dikembalikan</label>
@@ -154,6 +159,29 @@
     }
     $_SESSION['gagal'] = '';
     ?>
+</script>
+<!-- Inisialisasi Datepicker Pengembalian -->
+<script>
+    $(document).ready(function() {
+        // Set tanggal hari ini sebagai default
+        var today = new Date();
+        var day = String(today.getDate()).padStart(2, '0');
+        var month = String(today.getMonth() + 1).padStart(2, '0');
+        var year = today.getFullYear();
+        var todayString = day + '-' + month + '-' + year;
+        
+        $('#tanggalPengembalian').val(todayString);
+        
+        // Inisialisasi datepicker dengan popup
+        $('#tanggalPengembalian').datepicker({
+            format: 'dd-mm-yyyy',
+            autoclose: true,
+            todayHighlight: true,
+            language: 'en',
+            clearBtn: false,
+            orientation: 'auto bottom'
+        });
+    });
 </script>
 <!-- Swal Hapus Data -->
 <script>

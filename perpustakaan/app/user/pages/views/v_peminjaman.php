@@ -104,7 +104,12 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Tanggal Peminjaman</label>
-                                        <input type="text" class="form-control" name="tanggalPeminjaman" value="<?= date('d-m-Y'); ?>" readonly>
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </div>
+                                            <input type="text" class="form-control" id="tanggalPeminjaman" name="tanggalPeminjaman" placeholder="dd-mm-yyyy" required>
+                                        </div>
                                     </div>
                                     <div class="form-group">
                                         <label>Kondisi Buku Saat Dipinjam</label>
@@ -202,6 +207,28 @@
     }
     $_SESSION['gagal'] = '';
     ?>
+</script>
+<!-- Inisialisasi Datepicker Peminjaman -->
+<script>
+    $(document).ready(function() {
+        // Set tanggal hari ini sebagai default
+        var today = new Date();
+        var day = String(today.getDate()).padStart(2, '0');
+        var month = String(today.getMonth() + 1).padStart(2, '0');
+        var year = today.getFullYear();
+        var todayString = day + '-' + month + '-' + year;
+        
+        // Datepicker Peminjaman
+        $('#tanggalPeminjaman').val(todayString);
+        $('#tanggalPeminjaman').datepicker({
+            format: 'dd-mm-yyyy',
+            autoclose: true,
+            todayHighlight: true,
+            language: 'en',
+            clearBtn: false,
+            orientation: 'auto bottom'
+        });
+    });
 </script>
 <!-- Filter Kategori Buku -->
 <script>
